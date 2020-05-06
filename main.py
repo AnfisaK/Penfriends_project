@@ -3,6 +3,7 @@ from forms import RegisterForm, LoginForm, ProfileForm, DeleteForm, NotesForm, P
     RequestForm
 from flask_login import LoginManager, login_user, logout_user, current_user
 from data import db_session, users, profiles, requests, friends_db, parameters, notes
+import os
 
 db_session.global_init("db/penfriends.sqlite")
 session = db_session.create_session()
@@ -283,4 +284,5 @@ def parameters_func():  # ставим параметры поиска
 
 
 if __name__ == '__main__':
-    app.run(port=8080, host='127.0.0.1')
+    port = int(os.environ.get('PORT', 5000))
+    app.run(port=port, host='0.0.0.0')
