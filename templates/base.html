@@ -18,6 +18,7 @@
     background-color: white;
     padding: 5px 0px;
       }
+
 </style>
 <nav class="navbar navbar-expand-lg fixed-top bg-primary navbar-dark">
     <a class="navbar-brand" href="http://127.0.0.1:8080/">Home</a>
@@ -29,24 +30,24 @@
         <ul class="navbar-nav mr-4">
             {% if current_user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:8080/logout">Log out</a>
+                <a class="nav-link" href="https://penfriends.herokuapp.com/logout">Log out</a>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:8080/register">Register</a>
+                <a class="nav-link" href="https://penfriends.herokuapp.com/register">Register</a>
             </li>
             {% endif %}
             <li class="nav-item">
-                <a class="nav-link " href="http://127.0.0.1:8080/login">Sign in</a>
+                <a class="nav-link " href="https://penfriends.herokuapp.com/login">Log in</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="http://127.0.0.1:8080/friends">Friends</a>
+                <a class="nav-link " href="https://penfriends.herokuapp.com/friends">Friends</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="http://127.0.0.1:8080/notes">Notes</a>
+                <a class="nav-link " href="https://penfriends.herokuapp.com/notes">Notes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="http://127.0.0.1:8080/parameters">Search parameters</a>
+                <a class="nav-link " href="https://penfriends.herokuapp.com/parameters">Search parameters</a>
             </li>
         </ul>
     </div>
