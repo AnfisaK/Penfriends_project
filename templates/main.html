@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style type="text/css">
+    h5 {color: #0046c7;
+    margin: 0 30px;}
+    p {margin: 20px 40px;}
+    form {margin: 20px 30px;}
+    h3 {margin: 30px 30px;}
+    h4 {color: #0046c7;
+    margin: 10px 30px;}
+
+</style>
+<div class='content1'>
+    <p class="display-3" align="center" style='padding-top:50px; color:grey;'>Look for friends from all over the
+        world!</p>
+    {%if current_user.is_authenticated%}
+    <h4>You sign in like {{current_user.name}} {{current_user.surname}}</h4>
+    {% else %}
+    <h4>You are not logged in.</h4>
+    {% endif %}
+    <div id='inform' style='border: 7px solid #6198ff; width: 1000px;'>
+        <p style="padding:0 50px; color: black;">Hi, dear friend. In connection with the situation in our world, we
+            cannot travel and explore other cultures. This site will help you to find friends from all over the world
+            without leaving your home. For your convenience, we have added notes where you can record all the most
+            interesting things about different countries.</p>
+    </div>
+    <div id="profiles">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.profile_id.label }}<br>
+                {{ form.profile_id(class="form-control", type="number") }}<br>
+                {% for error in form.profile_id.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <p>Enter the profile number to send the request.</p>
+            <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        </form>
+        <p class="message">{{ message }}</p>
+        {% for i in profs: %}
+        <div style='margin:30px 0;border: 7px solid #6198ff; width: 1000px;'>
+            <h4>{{i[0].id}}</h4>
+            <h3>{{i[1].name}} {{i[1].surname}}</h3>
+            <h5>Age: </h5>
+            <p>{{i[1].age}}</p>
+            <h5>Country: </h5>
+            <p>{{i[1].country}}</p>
+            <h5>Sex: </h5>
+            <p>{{i[1].sex}}</p>
+            <h5>Bio: </h5>
+            <p>{{i[1].bio}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
